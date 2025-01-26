@@ -69,8 +69,8 @@ client.on(Events.InteractionCreate, async (interaction) => {
     }
 
     if (interaction.commandName === "currentprompt") {
-        if (OWNER_IDS.includes(interaction.user.id)) {
-            await interaction.reply(
+        if (!OWNER_IDS.includes(interaction.user.id)) {
+            return await interaction.reply(
                 "Nie masz uprawnień do wykonania tej komendy."
             );
         }
